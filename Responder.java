@@ -1,6 +1,8 @@
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.HashSet;
 /**
  * The responder class represents a response generator object.
  * It is used to generate an automatic response to an input string.
@@ -38,14 +40,13 @@ public class Responder
      * Generate a response.
      * @return   A string that should be displayed as the response
      */
-    public String generateResponse(String respuesta)
-    {//para poder realizar la actividad 0092 hemos creado el HashMap cadena2, y añadido el parámetro "respuesta" que será la
-        //palabra que señale el cliente.
-        //después creo una VL donde guardo la respuesta del cliente, inicianizandola a null.
+    public String generateResponse(HashSet<String> respuesta)
+    {     
         String solucion = null;
-        solucion = cadena2.get(respuesta);//luego doy a la VL el valor que se asocie al parámetro coincidente con la clave.
-                                     //si el valor del parámetro no está como clave, devolverá null.
-        if(solucion == null){         //y si la solución == null le doy el valor del ArrayList.
+        Iterator<String> it = respuesta.iterator();//obtengo el 1º elemento del parámetro.
+        String respuesta2 = it.next();              //obtengo el 1º elemento del parámetro.
+        solucion = cadena2.get(respuesta2);
+        if(solucion == null){         
             solucion = cadena.get(aleatorio.nextInt(cadena.size()));
         }
         return solucion ;
