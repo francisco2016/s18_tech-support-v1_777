@@ -19,6 +19,12 @@ public class Responder
     {
         aleatorio = new Random();
         cadena = new ArrayList<>();
+        cadena.add("1 Debe de comprobar la conexión a la red.");
+        cadena.add("2 Tiene la batería descargada.");
+        cadena.add("3 La capacidad de la menoria hace que su ordenador vaya lento.");
+        cadena.add("4 Descargue la aplicación de googleHeart, para verlo.");
+        cadena.add("5 Los ordenadores HP  son una buena opción de compra para estos casos.");
+        
     }
 
     /**
@@ -27,6 +33,15 @@ public class Responder
      */
     public String generateResponse()
     {
-        return "That sounds interesting. Tell me more...";
+        int sol = aleatorio.nextInt(cadena.size());
+        return cadena.get(sol);
     }
 }
+
+
+
+
+
+
+
+
