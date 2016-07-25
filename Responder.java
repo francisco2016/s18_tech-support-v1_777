@@ -38,24 +38,17 @@ public class Responder
      * Generate a response.
      * @return   A string that should be displayed as the response
      */
-    public String generateResponse()
-    {
-        //         int sol = aleatorio.nextInt(cadena.size());
-        //         return cadena.get(sol);
-        /////////////////////////////////////////////////////////////
-        InputReader reader2 = new InputReader();
-        int sol = 0;
-        if(reader2.getInput().contains("precio") || reader2.getInput().contains("appel") || 
-                       reader2.getInput().contains("puertos") ||  reader2.getInput().contains("multitarea")){
-                  sol = aleatorio.nextInt(cadena2.size());          
+    public String generateResponse(String respuesta)
+    {//para poder realizar la actividad 0092 hemos creado el HashMap cadena2, y añadido el parámetro "respuesta" que será la
+        //palabra que señale el cliente.
+        //después creo una VL donde guardo la respuesta del cliente, inicianizandola a null.
+        String solucion = null;
+        solucion = cadena2.get(respuesta);//luego doy a la VL el valor que se asocie al parámetro coincidente con la clave.
+                                     //si el valor del parámetro no está como clave, devolverá null.
+        if(solucion == null){         //y si la solución == null le doy el valor del ArrayList.
+            solucion = cadena.get(aleatorio.nextInt(cadena.size()));
         }
-        else{
-            sol = aleatorio.nextInt(cadena2.size());
-        }
-        
-        
-        
-        return sol;
+        return solucion ;
     }
 }
 

@@ -37,13 +37,13 @@ public class SupportSystem
         printWelcome();
 
         while(!finished) {
-            String input = reader.getInput();
+            String input = reader.getInput(); //la respuesta que dá el cliente se guarda en la VL input. 0094
             input = input.trim().toLowerCase();
             if(input.startsWith("bye") && input.endsWith("bye")) {
                 finished = true;
             }
             else {
-                String response = responder.generateResponse();
+                String response = responder.generateResponse(input);//0094 en esta actividad el mt recibe un parámetro
                 System.out.println(response);
             }
         }
